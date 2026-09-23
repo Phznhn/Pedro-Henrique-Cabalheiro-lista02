@@ -1,0 +1,39 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+
+    <p>Escreva um número e veja a tabuada dele</p>
+
+    <input type="number" id="num" oninput="gerarTabuada()">
+
+    <p id="tituloTabuada"></p>
+    <div id="resultado"></div>
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVA SCRIPT
+
+function gerarTabuada() {
+    var campo = document.getElementById("num");
+    var titulo = document.getElementById("tituloTabuada");
+    var res = document.getElementById("resultado");
+
+    var n = Number(campo.value);
+
+    titulo.innerHTML = `Tabuada do número: ${n}`;
+    res.innerHTML = "";
+
+    for (var i = 0; i <= 10; i++) {
+        var multiplicacao = n * i;
+        res.innerHTML += `${multiplicacao}<br>`;
+    }
+}

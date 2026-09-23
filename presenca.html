@@ -1,0 +1,55 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presença</title>
+</head>
+<body>
+
+    <h1>presenca.html</h1>
+
+    <div>
+        <label><input type="checkbox" class="aluno" value="João"> João</label><br>
+        <label><input type="checkbox" class="aluno" value="Márcio"> Márcio</label><br>
+        <label><input type="checkbox" class="aluno" value="Fabiana"> Fabiana</label><br>
+        <label><input type="checkbox" class="aluno" value="Jorge"> Jorge</label><br>
+        <label><input type="checkbox" class="aluno" value="Silvana"> Silvana</label><br>
+        <label><input type="checkbox" class="aluno" value="Luiz"> Luiz</label><br>
+        <label><input type="checkbox" class="aluno" value="Carlos"> Carlos</label><br>
+        <label><input type="checkbox" class="aluno" value="Pablo"> Pablo</label><br><br>
+
+        <input type="button" value="Confirmar Presença" onclick="confirmar()" style="background-color: green; color: white; padding: 10px; border: none; border-radius: 5px;">
+    </div>
+
+    <h2>Resultado</h2>
+    <p id="resultado"></p>
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVA SCRIPT
+
+function confirmar() {
+    var checkboxes = document.getElementsByClassName("aluno");
+    var res = document.getElementById("resultado");
+
+    var presentes = [];
+    var ausentes = [];
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            presentes.push(checkboxes[i].value);
+        } else {
+            ausentes.push(checkboxes[i].value);
+        }
+    }
+
+    var textoPresentes = presentes.join(", ");
+    var textoAusentes = ausentes.join(", ");
+
+    res.innerHTML = `<strong>Presentes:</strong> <span style="color: green; font-weight: bold;">${textoPresentes}</span><br><strong>Ausentes:</strong> <span style="color: red; font-weight: bold;">${textoAusentes}</span>`;
+}

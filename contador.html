@@ -1,0 +1,44 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Cliques</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contador de Cliques</h1>
+
+    <div>
+        <input type="button" value="Clique aqui!" onclick="contar()">
+        <input type="button" value="Zerar contador" onclick="zerar()">
+    </div>
+
+    <p id="resultado">Cliques: 0</p>
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVASCRIPT
+
+var cliques = 0;
+
+function contar() {
+    cliques++;
+    var res = document.getElementById("resultado");
+    res.innerHTML = `Cliques: ${cliques}`;
+}
+
+function zerar() {
+    cliques = 0;
+    var res = document.getElementById("resultado");
+    res.innerHTML = `Cliques: ${cliques}`;
+}

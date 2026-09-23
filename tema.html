@@ -1,0 +1,39 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Claro/Escuro</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Modo Claro/Escuro</h1>
+
+    <input type="button" value="Mudar Tema" onclick="mudarTema()">
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVASCRIPT
+
+var escuro = false;
+
+function mudarTema() {
+    if (escuro == false) {
+        document.body.style.background = "black";
+        document.body.style.color = "white";
+        escuro = true;
+    } else {
+        document.body.style.background = "white";
+        document.body.style.color = "black";
+        escuro = false;
+    }
+}

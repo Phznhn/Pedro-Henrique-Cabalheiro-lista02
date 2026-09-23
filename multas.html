@@ -1,0 +1,40 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Multas</title>
+</head>
+<body>
+
+    <h1>Sistema de Multas</h1>
+
+    <div>
+        <input type="number" id="txtvel"> km/h
+        <button id="btnVerificar">verificar</button>
+    </div>
+    <div id="resultado"></div>
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+
+ARQUIVO JAVA SCRIPT
+
+const botao = document.getElementById('btnVerificar');
+const txtvel = document.getElementById('txtvel');
+const res = document.getElementById('resultado');
+
+botao.addEventListener('click', function() {
+    const vel = Number(txtvel.value);
+
+    res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel} km/h</strong>.</p>`;
+
+    if (vel > 60) {
+        res.innerHTML += `<p>Velocidade acima do permitido! MULTADO.</p>`;
+    } else {
+        res.innerHTML += `<p>Conduza sempre com cinto de segurança!</p>`;
+    }
+});

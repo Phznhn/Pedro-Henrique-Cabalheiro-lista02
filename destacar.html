@@ -1,0 +1,54 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destacar Nome</title>
+</head>
+<body>
+
+    <h1>destacar.html</h1>
+
+    <p>Escreva um nome e veja ele destacado na lista</p>
+    <p>Se o nome não estiver na lista, ou não for exatamente igual, ele não será destacado</p>
+
+    <input type="text" id="txtNome" oninput="destacar()">
+
+    <ol id="listaNomes"></ol>
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVASCRIPT
+
+var nomes = [
+    "João",
+    "Márcio",
+    "Fabiana",
+    "Jorge",
+    "Silvana",
+    "Luiz",
+    "Carlos",
+    "Pablo"
+];
+
+function destacar() {
+    var txt = document.getElementById("txtNome");
+    var lista = document.getElementById("listaNomes");
+    var busca = txt.value;
+
+    lista.innerHTML = "";
+
+    for (var i = 0; i < nomes.length; i++) {
+        if (nomes[i] == busca) {
+            lista.innerHTML += `<li><span style="color: red; font-weight: bold;">${nomes[i]}</span></li>`;
+        } else {
+            lista.innerHTML += `<li>${nomes[i]}</li>`;
+        }
+    }
+}
+
+destacar();

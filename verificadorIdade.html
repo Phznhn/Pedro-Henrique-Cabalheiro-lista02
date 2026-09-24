@@ -1,0 +1,119 @@
+ARQUIVO HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            background: rgb(174, 174, 255);
+            font: normal 15pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 5px 5px 10px rgba(99, 99, 99, 0.283);
+        }
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+        #foto {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>Ano de Nascimento: <input type="number" id="txtano"></p>
+            <p>
+                Sexo:
+                <label><input type="radio" name="radsex" id="masc" checked> Masculino</label>
+                <label><input type="radio" name="radsex" id="fem"> Feminino</label>
+            </p>
+            <p><input type="button" value="Verificar" onclick="verificar()"></p>
+        </div>
+
+        <div id="res">
+            Preencha os dados acima para ver o resultado...
+        </div>
+        <div>
+            <img id="foto" src="" alt="Foto">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Uniderp</p>
+    </footer>
+
+    <script src="aaa2.js"></script>
+</body>
+</html>
+
+ARQUIVO JAVA SCRIPT
+
+function verificar() {
+    var data = new Date();
+    var anoAtual = data.getFullYear();
+    var fano = document.getElementById("txtano");
+    var res = document.getElementById("res");
+    var img = document.getElementById("foto");
+
+    var anoNasc = Number(fano.value);
+    var idade = anoAtual - anoNasc;
+
+    var fsex = document.getElementsByName("radsex");
+    var genero = "";
+
+    if (fsex[0].checked) {
+        genero = "Homem";
+        if (idade >= 0 && idade <= 2) {
+            img.src = "bebe menino.webp";
+        } else if (idade < 13) {
+            img.src = "crianca menino.webp";
+        } else if (idade < 18) {
+            img.src = "adolescente menino.webp";
+        } else if (idade < 60) {
+            img.src = "adulto homem.webp";
+        } else {
+            img.src = "idoso homem.webp";
+        }
+    } else {
+        genero = "Mulher";
+        if (idade >= 0 && idade <= 2) {
+            img.src = "bebe menina.webp";
+        } else if (idade < 13) {
+            img.src = "crianca menina.webp";
+        } else if (idade < 18) {
+            img.src = "adolescente menina.webp";
+        } else if (idade < 60) {
+            img.src = "adulto mulher.webp";
+        } else {
+            img.src = "idoso mulher.webp";
+        }
+    }
+
+    res.innerHTML = `Detectamos ${genero.toLowerCase()} com ${idade} anos.`;
+    img.style.display = "inline-block";
+}
